@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>
+        </title>
+        <style>
+            body
+            {
+                height: 200vh
+            }
+
+            .content
+            {
+                height: 20vh;
+                width: 20vw;
+                background-color: aqua;
+            }
+
+            .content::before
+            {
+                content: '';
+                height: 10vh;
+                width: 10vw;
+                background-color: red;
+                position:absolute
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class = kim>
+            <p class =word>
+                hello
+            </p>
+            <p class =word>
+                hello
+            </p>
+            <p class =word>
+                hello
+            </p>
+            <p class =word>
+                hello
+            </p>
+        </div>
+
+        <div class="content">
+
+        </div>
+    </body>
+    <script>
+        window.addEventListener('scroll',function(){
+            const para = document.getElementsByClassName("word");
+        for(var parameters of para)
+        {
+            const position = parameters.getBoundingClientRect();
+            console.log(position);
+        }
+        
+        })
+      
+        
+
+
+    </script>
+</html>

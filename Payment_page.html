@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="Payment_page.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <title>Payment</title>
+    </head>
+    <body>
+
+ 
+
+        <div class="payment-page-container">
+
+            <div class="payment-out-box">
+                <span class="payment-text">
+                    Payment
+                </span>
+        
+                <div class="product-info">
+                    <span id="payment-course">service name</span>
+                    <span id="payment-price">price</span>
+                </div>
+        
+                <!--payment method-->
+        
+                <div class="payment-methods">
+                    <p>Select Payment Method:</p>
+                    
+                    <div class="methods-container">
+                        <div id="card-method">
+                            <img src="credit-card.png" style="width: 9%;">
+                            <span>Card</span>
+                        </div>
+            
+                        <div id="ewallet-method">
+                            <img src="paypal.png">
+                            <span>E-Wallet</span>
+                        </div>
+                    </div>
+
+                </div>
+        
+                <!--payment method-->
+            </div>
+    
+            <!--invoice card-->
+    
+            <div class="invoice-container">
+
+                    <span class="invoice-start">Select a payment method first.</span>
+    
+                <div class="invoice-container-content">
+                    <div id="payment-method-name">
+                        <p>Pay with <span id="payment-method-name-specific">----</span> </p>
+                    </div>
+        
+                    <form action="payment_succesful.html" class="invoice-form-container">
+                        <div>
+                            <div>
+                                <label for="invoice-first" id="invoice-first">Card Number</label>
+                                <input type="text" id="invoice-first-input" name="payment-number" required>
+                            </div>
+                        </div>
+            
+                        <div>
+                            <label for="invoice-second" id="invoice-second">Cardholder Name</label>
+                            <input type="text" id="invoice-second-input" name="payment-email">
+                        </div>
+            
+                        <div class="invoice-other">
+                            <div>
+                                <label for="invoice-third">Expiry Date</label>
+                                <input type="text" id="invoice-third-input" name="expiry-date" placeholder="MM/YY" required>
+                            </div>
+                
+                            <div>
+                                <label for="invoice-fourth" id="invoice-fourth-label">CVC</label>
+                                <input type="text"  id="invoice-fourth-input" name="cvc" required>
+                            </div>
+    
+    
+                        </div>
+                        
+                            <div class="invoice-submit">
+                                <input type="submit"  name="invoice-submit" value="Pay" required>
+                            </div>
+
+    
+                    </form>
+                </div>
+    
+            </div>
+    
+            <!--invoice card-->
+
+        </div>
+        
+
+        <script>
+
+            $(".invoice-container-content").children().hide();
+            
+
+            $("#card-method").click(function() {
+                $(".invoice-container-content").children().show();
+                $(".invoice-other").children().show();
+                $("#invoice-first").text("Card Number");
+                $("#invoice-second").text("Cardholder Name");
+                $(".invoice-start").hide();
+                $("#payment-method-name-specific").text("Card");
+            });
+
+            $("#ewallet-method").click(function() {
+                $(".invoice-container-content").children().show();
+                $(".invoice-other").children().css({"display" : "none"});
+                $("#invoice-first").text("Phone Number");
+                $("#invoice-second").text("Email");
+                $(".invoice-start").hide();
+                $("#payment-method-name-specific").text("E-Wallet");
+            }); 
+    
+            $(".theme").click(function() {
+                $("body").toggleClass("dark");
+            })
+
+        </script>
+        
+    </body>
+</html>
